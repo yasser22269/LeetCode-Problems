@@ -10,23 +10,18 @@
  * };
  */
 class Solution {
-public:
-   int preorder(TreeNode *p, int low, int high)
-    {
-        int count = 0;
-        if(p != NULL)
-        {
-            if(p->val>=low && p->val<=high)
-             count += p->val ;
-              count += preorder(p->left,low,high) ;
-              count += preorder(p->right,low,high);
-            
-            //preorder(p->left,low,high);
-           // preorder(p->right,low,high);
-        }
-        return count;
-    }   
+public:  
     int rangeSumBST(TreeNode* root, int low, int high) {
-       return preorder(root,low,high);
+                int count = 0;
+        if(root == NULL)
+            return 0;
+            if(root->val>=low && root->val<=high)
+             count += root->val ;
+        
+             count += rangeSumBST(root->left,low,high) ;
+             count += rangeSumBST(root->right,low,high);
+
+        return count;
+
     }
 };
