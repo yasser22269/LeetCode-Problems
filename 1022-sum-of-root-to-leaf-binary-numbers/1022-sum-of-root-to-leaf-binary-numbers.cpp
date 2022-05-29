@@ -25,6 +25,7 @@ private:
 
         if(!node->left && !node->right){
             res = (res + num) ;
+            cout<<res<<endl;
             return;
         }
 
