@@ -12,11 +12,8 @@
 class Solution {
 private:
     int res = 0;
-    //const int MOD = 1e9 + 7;
-
 public:
     int sumRootToLeaf(TreeNode* root) {
-
         dfs(root, 0);
         return res;
     }
