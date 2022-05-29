@@ -14,12 +14,12 @@ private:
     int res = 0;
 public:
     int sumRootToLeaf(TreeNode* root) {
-        dfs(root, 0);
+        preorder(root, 0);
         return res;
     }
 
 private:
-    void dfs(TreeNode* node, int num){
+    void preorder(TreeNode* node, int num){
 
         num = (2 * num + node->val) ;
 
@@ -28,7 +28,7 @@ private:
             return;
         }
 
-        if(node->left) dfs(node->left, num);
-        if(node->right) dfs(node->right, num);
+        if(node->left) preorder(node->left, num);
+        if(node->right) preorder(node->right, num);
     }
 };
