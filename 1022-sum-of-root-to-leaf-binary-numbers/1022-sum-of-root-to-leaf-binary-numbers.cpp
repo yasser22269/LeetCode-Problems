@@ -17,19 +17,15 @@ public:
         preorder(root, 0);
         return res;
     }
-
-private:
-    void preorder(TreeNode* node, int num){
-
-        num = (2 * num + node->val) ;
-
-        if(!node->left && !node->right){
-            res = (res + num) ;
-            cout<<res<<endl;
-            return;
-        }
-
-        if(node->left) preorder(node->left, num);
-        if(node->right) preorder(node->right, num);
-    }
+   void preorder(TreeNode* p , int num){
+       num = (2 * num + p->val);
+       if(!p->left && !p->right){
+          res += num;
+           return;
+       }
+       if(p->left)
+       preorder(p->left ,num);
+    if(p->right)
+      preorder(p->right ,num);
+   } 
 };
