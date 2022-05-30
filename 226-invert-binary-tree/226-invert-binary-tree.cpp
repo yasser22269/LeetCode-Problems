@@ -12,22 +12,19 @@
 
 class Solution {
 public:
-        TreeNode* tree = new TreeNode;
+        TreeNode* tree;
     TreeNode* invertTree(TreeNode* root) {
         
         return preorder(root);
     }
-   TreeNode* preorder(TreeNode *p)
+   TreeNode* preorder(TreeNode *root)
     {
-        if(p != NULL)
-        {
-            TreeNode* r= p->left;
-            p->left = p->right;
-            p->right = r;
-            preorder(p->left);
-            preorder(p->right);
-         }
-            return p;
+        if(root != NULL){
+            swap(root->left, root->right);
+             invertTree(root->left);
+             invertTree(root->right);
+        }
+        return root;
        
    }
     
