@@ -14,21 +14,8 @@ public:
     int count =0;
     bool fb =false;
     bool hasPathSum(TreeNode* root, int targetSum) {
-        if( root != NULL){
-            // count = root->val;
-            //  if(root->val ==targetSum &&( !root->left && !root->right))
-            //      return true;
-            //  if(root->val ==targetSum &&( !root->left || !root->right))
-            //      return false;
-            
-        //if(root->left != NULL)
-         //   return preorder(root->left,targetSum,count);
-        // else if(root->right != NULL)
-        //     return preorder(root->right,targetSum,count);
-        // else
-        //     return false;
-            
-        return preorder(root,targetSum,count);
+        if( root != NULL){           
+            return preorder(root,targetSum,count);
         }else
                  return false;
 
@@ -40,9 +27,8 @@ public:
             count += p->val; 
             if(count == targetSum && p->left ==NULL &&  p->right ==NULL){
                      fb =true;
-                     return fb;
+                     return true;
             } 
-           // cout<< count <<endl;
             preorder(p->left,targetSum,count);
             preorder(p->right,targetSum,count);
             
